@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace EPILOG // EditorPrettyIdleLOGger ;)
 {
-    public static class Epilog 
+    public static partial class Epilog 
     {
         private static Style _style = new Style();
         public static Style Style => _style;
@@ -36,14 +36,8 @@ namespace EPILOG // EditorPrettyIdleLOGger ;)
         public static void Print(LogType logType, object message, params object[] @params)
         {
             var stackTrace = new System.Diagnostics.StackTrace();
-            var method = stackTrace.GetFrame(1).GetMethod();
-            //var parameters = stackTrace.GetFrame(1).GetMethod().GetParameters();
-            // var prs =  
-            //     parameters.Any() ? parameters.Select(p => $"{p}").Aggregate((p1, p2) => $"{p1}, {p2}") : String.Empty;
-
-            // Shrug(prs);
-
-            var extendedMessage = GetMessage(method.ReflectedType.Name, method.Name, message, @params);
+            var method = stackTrace.GetFrame(2).GetMethod();
+            var extendedMessage = GetMessage(method.ReflectedType?.Name, method.Name, message, @params);
             
             Debug.unityLogger.Log(logType, extendedMessage);
         }
@@ -52,8 +46,7 @@ namespace EPILOG // EditorPrettyIdleLOGger ;)
         {
             Debug.Log("\n");
         }
-
-        public static void Shrug(string shrugMessage = "") => Debug.Log(GetMessage($@"{shrugMessage} ¯\_(ツ)_/¯"));
+           
         public static void Error(string errorMessage) => Print(LogType.Error, errorMessage);
         public static void Warning(string warningMessage) => Print(LogType.Warning, warningMessage);
         public static void Exception(Exception exception) => Print(LogType.Exception, exception);
@@ -67,7 +60,7 @@ namespace EPILOG // EditorPrettyIdleLOGger ;)
         public static string GetMessage(string @class, string method, object message, object[] args)
         {
             var argsString = 
-                args.Any() ? args.Select(arg => $"{arg}").Aggregate((arg1, arg2) => $"{arg1}, {arg2}") : String.Empty;
+                args.Any() ? args.Select(arg => $"{arg}").Aggregate((arg1, arg2) => $"{arg1}, {arg2}") : string.Empty;
 
             return
                 $"<b><size={ _style.FontSize}>" +

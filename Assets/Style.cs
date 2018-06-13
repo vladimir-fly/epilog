@@ -1,8 +1,11 @@
+using System;
+using System.Runtime.Serialization;
 using UnityEngine;
 using UnityEditor;
 
 namespace EPILOG
 {
+    [Serializable]
     public class Style
     {
         public int FontSize { get; private set; }

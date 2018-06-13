@@ -20,3 +20,19 @@ public void Something()
 Result/Результат:
 
 ![Epilog screenshot](/epilog.png)
+
+And one more thing.
+
+И еще. =)
+
+It's emoji here
+
+Тут есть емодзи
+
+```
+Epilog.Emoji.Shrug();
+Epilog.Emoji.FlipTable();
+...
+```
+
+![Epilog screenshot](/epilog_emoji.png)

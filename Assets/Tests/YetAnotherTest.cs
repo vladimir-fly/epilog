@@ -14,7 +14,7 @@ namespace Another.Tests
         public static void YetAnotherTestRun()
         {
             Epilog.Print("Epilog in yet another test", 42, "Hi!", true, 4.2, new Tuple<int,bool>(15, false));
-            Epilog.Shrug("It's nothing here");
+            Epilog.Emoji.Shrug("It's nothing here");
         }
     }
 }
