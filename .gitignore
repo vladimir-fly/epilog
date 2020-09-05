@@ -1,6 +1,9 @@
 /Temp
 /Library
-/ProjectSettings
+/Library
+/UserSettings
 /obj
 /.vscode
 /Packages
+/Logs
+[Ll]og.*

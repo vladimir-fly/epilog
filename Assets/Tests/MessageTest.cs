@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 
 using UnityEngine;
+
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 
 namespace EPILOG.Tests
 {
@@ -10,7 +13,10 @@ namespace EPILOG.Tests
 	{
 		private static TestClass _testClass = new TestClass();
 
+        
+#if UNITY_EDITOR
 		[MenuItem("Window/EPILOG/Tests/All")]
+#endif
         public static void RunAll()
         {
 			Epilog.Print("Message tests started. \n -----------------------------");
@@ -24,31 +30,41 @@ namespace EPILOG.Tests
 			Epilog.Print("Message tests complete. \n -----------------------------");
         }
 
+#if UNITY_EDITOR
 		[MenuItem("Window/EPILOG/Tests/PrintMessageTest")]
+#endif
 		public static void PrintMessageTest()
 		{
 			RunTests(LogType.Log);
 		}
 
+#if UNITY_EDITOR
 		[MenuItem("Window/EPILOG/Tests/ErrorMessageTest")]
+#endif
 		public static void ErrorMessageTest()
 		{
 			RunTests(LogType.Error);
 		}
 
+#if UNITY_EDITOR
 		[MenuItem("Window/EPILOG/Tests/WarningMessageTest")]
+#endif		
 		public static void WarningMessageTest()
 		{
 			RunTests(LogType.Warning);
 		}
 
+#if UNITY_EDITOR
 		[MenuItem("Window/EPILOG/Tests/ExceptionMessageTest")]
+#endif		
 		public static void ExceptionMessageTest()
 		{
 			RunTests(LogType.Exception);
 		}
 
+#if UNITY_EDITOR
 		[MenuItem("Window/EPILOG/Tests/AssertMessageTest")]
+#endif
 		public static void AssertMessageTest()
 		{
 			RunTests(LogType.Assert);

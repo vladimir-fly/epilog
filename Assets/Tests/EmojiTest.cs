@@ -1,11 +1,16 @@
-﻿using UnityEditor;
+﻿#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 using UnityEngine;
 
 namespace EPILOG.Tests
 {
     public class EmojiTest
     {
+        #if UNITY_EDITOR
         [MenuItem("Window/EPILOG/Tests/EmojiTest")]
+        #endif
         public static void EmojiTestRun()
         {
             Epilog.Emoji.Shrug();
